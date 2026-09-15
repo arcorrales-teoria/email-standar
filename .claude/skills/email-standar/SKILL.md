@@ -1,6 +1,6 @@
 ---
 name: email-standar
-description: Guía para crear y editar correos HTML de marketing (HubSpot u otro ESP) que cumplen los estándares de la industria de entregabilidad, para que lleguen a la bandeja de entrada y no a spam. Cubre estructura de archivos, formato técnico válido, imágenes responsivas, links y UTM, personalización segura, asunto/preview, y segmentación por temperatura (Cold/Warm/Hot). Úsala siempre que se cree, edite o audite un correo HTML de marketing.
+description: Guía para crear y editar correos HTML de marketing (HubSpot u otro ESP) que cumplen los estándares de la industria de entregabilidad, para que lleguen a la bandeja de entrada y no a spam. Cubre estructura de archivos, formato técnico válido, imágenes responsivas y dónde alojarlas, links y UTM, personalización segura, asunto/preview, y cómo adaptar el copy según el contexto del lector. Úsala siempre que se cree, edite o audite un correo HTML de marketing.
 ---
 
 # Correos HTML que llegan a la bandeja de entrada
@@ -91,7 +91,54 @@ Excepciones donde SÍ va un ancho fijo (elementos que no deben crecer):
 - Iconos pequeños de proceso: `width="30"`
 - Logo aislado: `width="220"`
 
-## 4. Links, UTM y conteo
+## 4. Dónde alojar las imágenes y qué tamaños usar
+
+- Toda imagen va **subida al administrador de archivos del ESP** (en HubSpot:
+  Marketing → Archivos y plantillas → Archivos, o directo en
+  `https://app.hubspot.com/files/<hub-id>/`), nunca en una ruta local
+  (`assets/imagen.jpg`) ni en un hosting externo que no controlás. Una ruta local
+  deja de existir apenas el correo sale de tu computador (el destinatario ve un
+  ícono roto), y un hosting externo de terceros se puede mover, expirar o
+  bloquearse, rompiendo el correo días o semanas después de enviado, sin aviso.
+- **Si todavía no tenés la imagen final subida, decilo explícitamente en vez de
+  seguir con un placeholder silencioso.** Si estás armando el correo con ayuda de
+  Claude y falta una imagen, Claude tiene que recordarte: subila primero a
+  `https://app.hubspot.com/files/<hub-id>/` y compartí el link que te da HubSpot,
+  para poder ponerlo en el `src` real. Nunca dejar un correo "terminado" con una
+  imagen en ruta local sin marcarlo como pendiente.
+- Durante la construcción es normal tener una carpeta `assets/` local para
+  previsualizar en el navegador. Antes de pegar el fragmento en el ESP, cada
+  `src="assets/..."` se reemplaza por la URL real ya subida.
+- **Formato: PNG o JPG, nunca SVG ni WEBP** en el cuerpo del correo. Outlook de
+  escritorio (todavía muy usado en B2B) no los renderiza de forma confiable, y el
+  ícono simplemente no aparece. Si el asset original viene en SVG o WEBP (común
+  si sale de un design system), convertilo a PNG antes de subirlo.
+- **Tamaños de referencia** (medidas reales de esta campaña; ajustá según tu
+  diseño, pero mantené la misma lógica: fijo para lo que no debe crecer,
+  responsivo para lo que sí):
+
+  | Tipo de imagen | Ancho de referencia | Notas |
+  |---|---|---|
+  | Banner superior (header, logo integrado) | 600px | Ancho fijo, ocupa todo el correo |
+  | Imagen de cuerpo / ilustración | max-width 520px | Responsivo, `width="100%"` (ver sección 3) |
+  | Card de recurso (2 lado a lado) | max-width 260px | Cada una, la mitad del ancho del correo |
+  | Ícono de proceso/lista | 30px | Ancho fijo, no debe crecer |
+  | Logo aislado | 220px | Ancho fijo |
+
+- **`alt` descriptivo siempre**: muchos clientes de correo bloquean imágenes por
+  default hasta que el destinatario decide cargarlas. El `alt` es lo único que ve
+  esa persona hasta ese momento, y además es lo que usan los lectores de pantalla.
+  Un `alt=""` vacío o con el nombre del archivo no sirve para ninguna de las dos
+  cosas.
+- Comprimí cada imagen antes de subirla (el archivo final para email, no el
+  original de diseño). No cuenta contra el límite de 100KB del HTML en sí (las
+  imágenes se cargan aparte), pero si son pesadas el correo tarda en verse
+  completo, lo cual sí afecta la experiencia.
+
+Ver `references/imagenes.md` para el detalle completo, incluyendo qué hacer cuando
+todavía no tenés la imagen final subida.
+
+## 5. Links, UTM y conteo
 
 - **3-5 links de contenido real** por correo es el punto ideal. Hasta 6-7 es aceptable
   si hay una razón clara (ej. un CTA de ventas + varios íconos de producto). Más que
@@ -113,7 +160,7 @@ Excepciones donde SÍ va un ancho fijo (elementos que no deben crecer):
   invita a suscribirse y, más abajo, otro texto que invita a lo mismo). Se siente
   repetitivo y ninguno de los dos brilla.
 
-## 5. Personalización segura (merge tags / HubL)
+## 6. Personalización segura (merge tags / HubL)
 
 Cualquier propiedad de contacto que pueda estar vacía necesita una guarda condicional,
 o el correo le llega a esa persona con un hueco o una coma huérfana.
@@ -139,7 +186,7 @@ mezcla contactos de distintos orígenes (eventos, formularios, listas compradas)
 digas "como ya vimos en el correo anterior" a menos que el flujo garantice que todos
 los que reciben esa pieza sí recibieron la anterior.
 
-## 6. Asunto y preview text
+## 7. Asunto y preview text
 
 - **Combinado, 110-125 caracteres**: es lo que llena la línea completa en Gmail de
   escritorio sin cortarse ni dejar espacio en blanco.
@@ -155,7 +202,7 @@ los que reciben esa pieza sí recibieron la anterior.
   signos de exclamación múltiples, "gratis", "urgente", "última oportunidad", exceso
   de símbolos ($$$, %%%).
 
-## 7. Lo que de verdad decide el copy: ¿tiene contexto del producto o no?
+## 8. Lo que de verdad decide el copy: ¿tiene contexto del producto o no?
 
 La pregunta que más cambia cómo hay que escribir un correo no es "qué tan seguido
 abre" ni ningún score de engagement: es **si el destinatario ya sabe qué es tu
@@ -180,7 +227,7 @@ detallado de cómo se ve esto aplicado a un sistema de 3 niveles, pero esa
 implementación puntual es secundaria: lo que hay que llevarse de acá es el principio
 de arriba.
 
-## 8. Entregabilidad: lo que decide si llega a spam
+## 9. Entregabilidad: lo que decide si llega a spam
 
 Ver `references/deliverability.md` para el detalle técnico completo (autenticación
 del dominio, ratio texto/imagen, peso del correo). Resumen rápido:
@@ -200,10 +247,14 @@ del dominio, ratio texto/imagen, peso del correo). Resumen rápido:
 - **Peso total del correo**: menos de 100KB. Correos pesados tardan en cargar y varios
   filtros los penalizan.
 
-## 9. Checklist antes de enviar
+## 10. Checklist antes de enviar
 
 - [ ] `grep` de tags prohibidos en el `-hubspot.html` da vacío
 - [ ] Todas las imágenes de cuerpo en `width="100%"` (salvo banner/ícono/logo)
+- [ ] Cero imágenes en ruta local (`assets/...`) o en hosting externo no controlado:
+      todas subidas al administrador de archivos del ESP
+- [ ] Cero imágenes en SVG o WEBP en el cuerpo del correo (todas PNG/JPG)
+- [ ] Todas las imágenes con `alt` descriptivo
 - [ ] Todos los links de contenido llevan UTM con `&amp;`
 - [ ] Cero acortadores de link
 - [ ] Todo merge tag opcional (nombre, empresa) tiene su `{% if %}`
@@ -219,7 +270,9 @@ del dominio, ratio texto/imagen, peso del correo). Resumen rápido:
   el documento completo y el fragmento, y por qué cada una existe.
 - `references/deliverability.md`: guía completa de autenticación, spam triggers, y
   todo lo que decide bandeja de entrada vs. spam.
-- `references/segmentacion.md`: cómo construir una misma pieza en 3 temperaturas sin
-  que se sienta repetida ni forzada.
+- `references/imagenes.md`: dónde alojar cada imagen, formatos compatibles, tamaños
+  de referencia, y qué hacer mientras no tenés el asset final.
+- `references/segmentacion.md`: el principio de contexto vs. sin contexto, y un
+  ejemplo de cómo se ve aplicado a un sistema de 3 niveles.
 - `references/asunto-preview.md`: la lógica completa detrás del estándar de
   caracteres, con ejemplos reales.
