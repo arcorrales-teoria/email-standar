@@ -36,6 +36,50 @@ demás porque son las que más fácil se olvidan en el apuro:
 5. **Antes de confirmar un asunto o preview como definitivo, contá los caracteres**
    (sección 7). No lo estimes a ojo.
 
+## Cómo usar esta skill para armar un correo desde cero
+
+Esto responde la pregunta de "alguien me pide un correo de X, ¿por dónde empiezo?".
+
+1. **Aclará lo que falta antes de escribir una sola línea de copy.** Como mínimo
+   necesitás saber:
+   - El tema/objetivo: qué querés que el lector sepa o haga después de leerlo.
+   - El público: ¿tiene contexto de tu producto/marca o no? (ver sección 8). Esto
+     cambia todo el tono.
+   - El CTA principal: ¿a dónde va el link? ¿ya existe esa URL o todavía no?
+   - Si es un correo suelto o parte de una secuencia (si hay correos anteriores en
+     la misma serie, revisalos para no repetir el mismo copy ni el mismo tono).
+   - Si el proyecto ya tiene marca definida (colores, fuente, tono de voz) o si hay
+     que usar algo genérico.
+   Si algo de esto no está claro, preguntalo primero. Sale mucho más barato
+   preguntar ahora que reescribir un correo entero después.
+
+2. **Partí siempre de la plantilla, nunca de cero.** `templates/_template.html` y
+   `templates/_template-hubspot.html` ya tienen resuelto todo lo técnico: HubL
+   seguro, imágenes responsivas, la estructura de dos archivos, footer con
+   unsubscribe real. Duplicá los dos archivos con el nombre del correo nuevo, y
+   reemplazá cada placeholder (`{{ASUNTO}}`, `{{TITULO}}`, `PLACEHOLDER_URL_...`,
+   etc.) por contenido real. No hace falta usar cada bloque: si el correo no
+   necesita un segundo CTA o una imagen de cuerpo, borrá ese bloque entero (`<tr>`
+   a `</tr>`) en los dos archivos.
+
+3. **Escribí el copy** siguiendo la sección 8 (contexto del lector), la sección 7
+   (asunto/preview) y la regla de nunca usar guion largo.
+
+4. **Reemplazá cada asset** por URLs reales ya subidas al administrador de archivos
+   de tu ESP (sección 4). Si todavía no existe alguna imagen, dejá el placeholder
+   explícito y avisalo, no lo dejes pasar en silencio.
+
+5. **Armá los links con UTM real** (sección 5), usando el generador de tracking
+   URLs de tu ESP si está disponible.
+
+6. **Validá antes de entregar**: corré el comando de la sección 2 sobre el
+   `-hubspot.html`, contá los caracteres de asunto + preview, y repasá el
+   checklist completo (sección 10).
+
+7. **Entregá los dos archivos**: el `.html` completo para que se pueda
+   previsualizar en el navegador, y el `-hubspot.html` para pegar directo en el
+   editor de HTML personalizado del ESP.
+
 ## Estándares de la industria
 
 De acá para abajo, todo lo que sigue sí es estándar general de email marketing y

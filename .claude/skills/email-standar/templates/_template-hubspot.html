@@ -1,0 +1,147 @@
+  <!-- preheader, oculto, define el preview text del inbox -->
+  <div style="display:none; max-height:0; overflow:hidden; mso-hide:all; font-size:1px; line-height:1px; color:#F4F5F7; opacity:0;">
+    {{PREVIEW}}
+    &#8203;&zwnj;&nbsp;&#8203;&zwnj;&nbsp;&#8203;&zwnj;&nbsp;&#8203;&zwnj;&nbsp;&#8203;&zwnj;&nbsp;&#8203;&zwnj;&nbsp;&#8203;&zwnj;&nbsp;&#8203;&zwnj;&nbsp;&#8203;&zwnj;&nbsp;&#8203;&zwnj;&nbsp;
+  </div>
+
+  <center style="width:100%; background:#F4F5F7;">
+    <table role="presentation" align="center" width="100%" cellpadding="0" cellspacing="0" style="width:100%; margin:0 auto; background:#F4F5F7; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+      <tr>
+        <td align="center" style="padding:32px 16px;">
+
+          <table role="presentation" align="center" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; margin:0 auto; background:#FFFFFF; border-radius:8px; overflow:hidden; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+
+            <!-- ver en el navegador: obligatorio, va siempre -->
+            <tr>
+              <td align="center" style="padding:16px 40px 0;">
+                <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#6B7280;">
+                  ¿No se ve bien este correo? <a class="hubspot-mergetag" data-viewaswebpage="true" href="{{ view_as_page_url }}" target="_blank" style="color:#6B7280; text-decoration:underline;">Ver en el navegador</a>
+                </p>
+              </td>
+            </tr>
+
+            <!-- banner · PLACEHOLDER: reemplazar src por la URL real subida al
+                 administrador de archivos de tu ESP (ver sección 4 del SKILL.md).
+                 Ancho de referencia: 600px. -->
+            <tr>
+              <td style="line-height:0; font-size:0;">
+                <img src="PLACEHOLDER_URL_BANNER"
+                     alt="PLACEHOLDER: alt descriptivo del banner"
+                     width="600" style="width:100%; max-width:600px; height:auto; display:block; border:0; outline:none; -ms-interpolation-mode:bicubic;">
+              </td>
+            </tr>
+
+            <!-- headline -->
+            <tr>
+              <td style="padding:32px 40px 0;">
+                <h1 class="h1" style="margin:0; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:28px; line-height:1.25; letter-spacing:-.01em; color:#111827;">
+                  {{TITULO}}
+                </h1>
+              </td>
+            </tr>
+
+            <!-- cuerpo · saludo con HubL seguro (nunca sin el {% if %}) + 2-3 párrafos cortos -->
+            <tr>
+              <td style="padding:20px 40px 0;">
+                <p style="margin:0 0 16px; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:1.6; color:#374151;">
+                  Hola{% if contact.firstname %} {{ contact.firstname }}{% endif %},
+                </p>
+                <p style="margin:0 0 16px; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:1.6; color:#374151;">
+                  {{PARRAFO_2}}
+                </p>
+                <p style="margin:0 0 16px; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:1.6; color:#374151;">
+                  {{PARRAFO_3}}
+                </p>
+              </td>
+            </tr>
+
+            <!-- imagen de cuerpo, opcional · si no aplica, borrar este bloque entero.
+                 SIEMPRE width="100%" acá (ver sección 3 del SKILL.md), nunca un número fijo. -->
+            <tr>
+              <td style="padding:8px 40px; line-height:0; font-size:0;">
+                <img src="PLACEHOLDER_URL_IMAGEN_CUERPO"
+                     alt="PLACEHOLDER: alt descriptivo"
+                     width="100%" style="width:100%; max-width:520px; height:auto; display:block; border:0; border-radius:8px; outline:none; -ms-interpolation-mode:bicubic;">
+              </td>
+            </tr>
+
+            <!-- cta 1 · primario, centrado -->
+            <tr>
+              <td align="center" style="padding:20px 40px 8px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                  <tr>
+                    <td align="center" bgcolor="#111827" style="border-radius:6px;">
+                      <a href="{{URL_CTA_1}}" target="_blank"
+                         style="display:inline-block; padding:14px 28px; font-family:Arial, Helvetica, sans-serif; font-size:15px; font-weight:600; color:#FFFFFF; background:#111827; border-radius:6px; text-decoration:none;">
+                        {{TEXTO_CTA_1}} &rarr;
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- separador, borrar si no hay segundo bloque de contenido -->
+            <tr>
+              <td style="padding:28px 40px 0;">
+                <div style="border-top:1px solid #E5E7EB;"></div>
+              </td>
+            </tr>
+
+            <!-- cuerpo secundario, opcional -->
+            <tr>
+              <td style="padding:24px 40px 0;">
+                <p style="margin:0 0 6px; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:1.6; color:#374151;">
+                  {{PARRAFO_SECUNDARIO}}
+                </p>
+              </td>
+            </tr>
+
+            <!-- cta 2 · secundario, más chico, opcional -->
+            <tr>
+              <td align="center" style="padding:8px 40px 32px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                  <tr>
+                    <td align="center" bgcolor="#4B5563" style="border-radius:5px;">
+                      <a href="{{URL_CTA_2}}" target="_blank"
+                         style="display:inline-block; padding:10px 20px; font-family:Arial, Helvetica, sans-serif; font-size:13px; font-weight:600; color:#FFFFFF; background:#4B5563; border-radius:5px; text-decoration:none;">
+                        {{TEXTO_CTA_2}} &rarr;
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- firma -->
+            <tr>
+              <td style="padding:0 40px 36px;">
+                <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:15px; line-height:1.6; color:#374151;">
+                  Un saludo,<br>
+                  <span style="color:#111827; font-weight:700;">{{FIRMANTE}}</span><br>
+                  <span style="color:#6B7280; font-size:13px;">{{EQUIPO}}</span>
+                </p>
+              </td>
+            </tr>
+
+          </table>
+
+          <!-- footer · obligatorio: dirección postal real + link real de unsubscribe -->
+          <table role="presentation" align="center" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; margin:0 auto; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+            <tr>
+              <td align="center" style="padding:24px 40px;">
+                <p style="margin:0 0 6px; font-family:Arial, Helvetica, sans-serif; font-size:12.5px; line-height:1.6; color:#6B7280;">
+                  {{NOMBRE_EMPRESA}} · {{DIRECCIÓN_POSTAL_COMPLETA}}
+                </p>
+                <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:12.5px; line-height:1.6; color:#6B7280;">
+                  Recibiste este correo porque estás en la base de contactos de marketing de {{NOMBRE_EMPRESA}}.
+                  <a href="{{ unsubscribe_link }}" style="color:#6B7280; text-decoration:underline;">Darte de baja</a>
+                </p>
+              </td>
+            </tr>
+          </table>
+
+        </td>
+      </tr>
+    </table>
+  </center>
