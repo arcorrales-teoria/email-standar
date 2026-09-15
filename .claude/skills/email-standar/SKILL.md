@@ -13,12 +13,33 @@ bandeja de entrada en vez de spam.
 No hace falta leer todo de una vez: cada sección tiene lo esencial, y los archivos en
 `references/` tienen el detalle completo para cuando haga falta profundizar.
 
-> **Regla de estilo obligatoria, sin excepción: nunca uses guion largo (—, em dash)
-> en el copy de ningún correo generado con esta skill.** Es una regla de
-> funcionamiento interno de la skill, no un estándar de la industria: aplica siempre,
-> en todo texto que se escriba para un correo (asunto, preview, cuerpo, CTA), sin
-> importar el proyecto. Si hace falta una pausa o una aclaración donde normalmente
-> irías con un guion largo, usá una coma, un punto, dos puntos, o reformulá la frase.
+## Funcionamiento interno de la skill
+
+Esto no son estándares de la industria: son reglas de comportamiento propias de esta
+skill, sobre cómo tiene que operar quien (o quién, si es una IA) la esté usando para
+armar un correo. Aplican siempre, sin importar el proyecto, y van antes que todo lo
+demás porque son las que más fácil se olvidan en el apuro:
+
+1. **Nunca uses guion largo (—, em dash) en el copy de ningún correo.** Ni en
+   asunto, ni en preview, ni en cuerpo, ni en CTA. Si hace falta una pausa o una
+   aclaración donde normalmente irías con un guion largo, usá una coma, un punto,
+   dos puntos, o reformulá la frase.
+2. **Si falta una imagen por subir, decilo explícitamente y no sigas de largo.**
+   Nunca dejes un correo "terminado" con una imagen en ruta local o en un
+   placeholder sin marcar. Avisá el pendiente y recordá subirla primero a
+   `https://app.hubspot.com/files/<hub-id>/` (ver sección 4).
+3. **Toda edición a un correo va en los dos archivos**, el `.html` completo y el
+   `-hubspot.html`, nunca en uno solo (ver sección 1). Son el mismo correo.
+4. **Después de cualquier edición al `-hubspot.html`, corré el comando de
+   validación** (sección 2) antes de darlo por terminado. No asumas que quedó bien
+   solo porque el cambio se veía simple.
+5. **Antes de confirmar un asunto o preview como definitivo, contá los caracteres**
+   (sección 7). No lo estimes a ojo.
+
+## Estándares de la industria
+
+De acá para abajo, todo lo que sigue sí es estándar general de email marketing y
+entregabilidad, no una regla propia de esta skill.
 
 ## 1. Estructura de archivos
 
