@@ -155,21 +155,30 @@ los que reciben esa pieza sí recibieron la anterior.
   signos de exclamación múltiples, "gratis", "urgente", "última oportunidad", exceso
   de símbolos ($$$, %%%).
 
-## 7. Segmentación por temperatura (Cold / Warm / Hot)
+## 7. Lo que de verdad decide el copy: ¿tiene contexto del producto o no?
 
-Cuando la misma pieza se envía a audiencias con distinto nivel de relación con la
-marca, el diseño, las imágenes y los links se mantienen idénticos entre versiones;
-solo cambia el texto puntual (la apertura del cuerpo, el CTA, a veces el asunto). Ver
-`references/segmentacion.md` para el detalle completo, pero en resumen:
+La pregunta que más cambia cómo hay que escribir un correo no es "qué tan seguido
+abre" ni ningún score de engagement: es **si el destinatario ya sabe qué es tu
+producto/marca, o no tiene ni idea**. Todo lo demás (tono, gancho, cuánto explicar) se
+deriva de esa única pregunta.
 
-- **Cold** (casi no conoce la marca, abre poco): el copy necesita más gancho. Dos
-  caminos válidos: una afirmación arriesgada/provocadora, o ser más explicativo de lo
-  normal. Nunca asumas que sabe quién eres.
-- **Warm** (cierta familiaridad, apertura media): gancho más suave, reconoce el tema
-  en general (la industria, no el contenido puntual que ya le mandaste).
-- **Hot** (relación más cercana, abre seguido): directo pero conversado, nunca un
-  guion frío tipo "Sabes que...". Puede sonar más a "así pensamos esto en la empresa"
-  que a una explicación desde cero.
+- **Sin contexto**: no podés asumir que sabe qué hacés, ni usar jerga interna, ni
+  referenciar contenido previo tuyo. El copy tiene que ganarse la apertura solo
+  (con un gancho fuerte o siendo más explicativo de lo normal) y explicar desde la
+  base. Nunca digas "como ya viste" o "como sabes" sobre algo que no podés verificar
+  que efectivamente vio.
+- **Con contexto**: ya sabe qué es tu producto y para qué sirve. Ahí el copy puede ir
+  directo, encuadrar desde la perspectiva propia de la marca, y saltarse la
+  explicación desde cero, siempre que no suene a guion frío tipo "Sabes que...".
+
+Si además estás enviando la misma pieza a varias audiencias (por ejemplo, un sistema
+de scoring tipo Cold/Warm/Hot, o listas separadas por origen), el diseño, las
+imágenes y los links se mantienen idénticos entre versiones; solo cambia el texto
+puntual (la apertura del cuerpo, el CTA, a veces el asunto), siempre gobernado por la
+misma pregunta de contexto. Ver `references/segmentacion.md` para un ejemplo
+detallado de cómo se ve esto aplicado a un sistema de 3 niveles, pero esa
+implementación puntual es secundaria: lo que hay que llevarse de acá es el principio
+de arriba.
 
 ## 8. Entregabilidad: lo que decide si llega a spam
 
