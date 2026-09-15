@@ -1,5 +1,5 @@
 ---
-name: html-email-deliverability
+name: email-standar
 description: Guía para crear y editar correos HTML de marketing (HubSpot u otro ESP) que cumplen los estándares de la industria de entregabilidad, para que lleguen a la bandeja de entrada y no a spam. Cubre estructura de archivos, formato técnico válido, imágenes responsivas, links y UTM, personalización segura, asunto/preview, y segmentación por temperatura (Cold/Warm/Hot). Úsala siempre que se cree, edite o audite un correo HTML de marketing.
 ---
 
@@ -99,6 +99,13 @@ Excepciones donde SÍ va un ancho fijo (elementos que no deben crecer):
 - Todo link de contenido lleva UTM: `?utm_source=email&amp;utm_medium=<canal>&amp;utm_campaign=<campaña>&amp;utm_content=<slug-del-correo>`.
   **Usa `&amp;`, no `&` suelto**, porque el documento es XHTML y un `&` sin escapar
   puede romper el parseo en algunos clientes de correo.
+- **Si estás en HubSpot, mejor usa su generador de tracking URLs** en vez de armar el
+  UTM a mano: `https://app.hubspot.com/settings/<hub-id>/tracking-urls` (el número de
+  la URL es el ID de tu cuenta). HubSpot arma la URL con los parámetros correctos, la
+  asocia automáticamente a una campaña existente (o te deja crear una), y esa
+  asociación es lo que después te deja ver reportes de atribución reales dentro de
+  HubSpot en vez de solo parámetros sueltos que nadie cruza con nada. Reservá el UTM
+  armado a mano para links que no pasan por HubSpot.
 - **Nunca un acortador de links** (`hubs.ly`, `bit.ly`, etc.). Los acortadores son una
   señal de spam para varios filtros, y ocultan el destino real al lector. Siempre la
   URL directa y completa.

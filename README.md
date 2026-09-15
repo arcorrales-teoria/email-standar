@@ -1,4 +1,4 @@
-# html-email-deliverability
+# email-standar
 
 Skill de [Claude Code](https://claude.com/claude-code) para crear y editar correos
 HTML de marketing (HubSpot u otro ESP) que cumplen los estándares de la industria de
@@ -15,12 +15,12 @@ que el lector no tenía, etc.), no de una lista genérica copiada de internet.
 
 ## Instalación
 
-Cloná este repo (o copiá la carpeta `.claude/skills/html-email-deliverability/`)
+Cloná este repo (o copiá la carpeta `.claude/skills/email-standar/`)
 dentro de la carpeta `.claude/skills/` de tu proyecto:
 
 ```bash
-git clone https://github.com/<tu-usuario>/html-email-deliverability.git
-cp -r html-email-deliverability/.claude/skills/html-email-deliverability \
+git clone https://github.com/<tu-usuario>/email-standar.git
+cp -r email-standar/.claude/skills/email-standar \
       /ruta/a/tu/proyecto/.claude/skills/
 ```
 
@@ -37,7 +37,8 @@ crear, editar o auditar un correo HTML de marketing.
 - **Imágenes responsivas**: el bug más común (imágenes diminutas en Gmail móvil) y
   la regla que lo evita.
 - **Links y UTM**: cuántos links por correo, cómo escaparlos, por qué nunca usar
-  acortadores.
+  acortadores, y por qué conviene armarlos con el generador de tracking URLs de
+  HubSpot en vez de a mano.
 - **Personalización segura**: cómo usar merge tags sin que un campo vacío rompa la
   gramática del correo.
 - **Asunto y preview text**: el estándar de caracteres que llena la línea de la
@@ -50,7 +51,7 @@ crear, editar o auditar un correo HTML de marketing.
 ## Estructura del repo
 
 ```
-.claude/skills/html-email-deliverability/
+.claude/skills/email-standar/
 ├── SKILL.md                        ← guía principal, se carga siempre
 └── references/
     ├── hubspot-format.md           ← detalle técnico del formato de HubSpot
