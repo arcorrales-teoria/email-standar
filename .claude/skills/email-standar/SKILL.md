@@ -13,6 +13,13 @@ bandeja de entrada en vez de spam.
 No hace falta leer todo de una vez: cada sección tiene lo esencial, y los archivos en
 `references/` tienen el detalle completo para cuando haga falta profundizar.
 
+> **Regla de estilo obligatoria, sin excepción: nunca uses guion largo (—, em dash)
+> en el copy de ningún correo generado con esta skill.** Es una regla de
+> funcionamiento interno de la skill, no un estándar de la industria: aplica siempre,
+> en todo texto que se escriba para un correo (asunto, preview, cuerpo, CTA), sin
+> importar el proyecto. Si hace falta una pausa o una aclaración donde normalmente
+> irías con un guion largo, usá una coma, un punto, dos puntos, o reformulá la frase.
+
 ## 1. Estructura de archivos
 
 Cada correo vive en **dos archivos**:
@@ -249,6 +256,7 @@ del dominio, ratio texto/imagen, peso del correo). Resumen rápido:
 
 ## 10. Checklist antes de enviar
 
+- [ ] Cero guion largo (—) en todo el copy
 - [ ] `grep` de tags prohibidos en el `-hubspot.html` da vacío
 - [ ] Todas las imágenes de cuerpo en `width="100%"` (salvo banner/ícono/logo)
 - [ ] Cero imágenes en ruta local (`assets/...`) o en hosting externo no controlado:
